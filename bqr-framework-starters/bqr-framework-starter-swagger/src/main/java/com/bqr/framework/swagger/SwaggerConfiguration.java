@@ -1,4 +1,4 @@
-package com.bqr.framework.swagger;
+package com.bqr.framework.swagger;//package com.bqr.framework.swagger;
 
 
 
@@ -23,7 +23,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @ConditionalOnMapProperty(prefix = "swagger.")
 @ConditionalOnProperty(value = "swagger.enable", matchIfMissing = true)
 @EnableConfigurationProperties(SwaggerProperties.class)
-public class SwaggerConfig
+public class SwaggerConfiguration
 {
 
     @Bean
@@ -40,14 +40,16 @@ public class SwaggerConfig
                 .build()
                 .apiInfo(apiInfo);
 
-        
+
         return docket;
     }
 
     @Bean("swaggerApiInfo")
     public ApiInfo createApi(SwaggerProperties swaggerProperties)
     {
-        return new ApiInfoBuilder()
+
+
+            return new ApiInfoBuilder()
                 .title(swaggerProperties.getTitle()) // 标题
                 .description(swaggerProperties.getDescription()) // 描述
                 .termsOfServiceUrl("") //网址
