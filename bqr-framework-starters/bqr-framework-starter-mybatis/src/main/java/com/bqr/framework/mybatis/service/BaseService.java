@@ -121,7 +121,7 @@ public abstract class BaseService<T>
     
     public int insert(T record)
     {
-        ensureKey(record);
+//        ensureKey(record);
         return getMapper().insert(record);
     }
     
@@ -226,12 +226,6 @@ public abstract class BaseService<T>
     {
         RowBounds rowBounds = new RowBounds(offset, limit);
         return getMapper().selectByRowBounds(record, rowBounds);
-    }
-    
-    public Long getKey()
-    {
-        // return idGenerator.nextId();
-        return getMapper().getKey(1);
     }
     
 }
