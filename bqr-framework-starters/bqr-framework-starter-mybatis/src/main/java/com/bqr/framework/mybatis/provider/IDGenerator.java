@@ -1,4 +1,4 @@
-package com.bqr.framework.jdbc.provider;
+package com.bqr.framework.mybatis.provider;
 
 import java.util.HashSet;
 import java.util.Set;

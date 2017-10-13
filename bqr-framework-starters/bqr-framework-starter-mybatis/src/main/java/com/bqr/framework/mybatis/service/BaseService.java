@@ -1,10 +1,10 @@
-package com.bqr.framework.jdbc.service;
+package com.bqr.framework.mybatis.service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.bqr.framework.jdbc.entity.BaseEntity;
-import com.bqr.framework.jdbc.mapper.FrameworkBaseMapper;
+import com.bqr.framework.mybatis.entity.BaseEntity;
+import com.bqr.framework.mybatis.mapper.FrameworkBaseMapper;
 import com.github.pagehelper.PageHelper;
 import org.apache.commons.lang.StringUtils;
 import org.apache.ibatis.session.RowBounds;

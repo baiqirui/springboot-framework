@@ -15,7 +15,7 @@ mybatis:
       cache-enabled: false
 
 mapper:
-    mappers: com.bqr.framework.jdbc.mapper.FrameworkBaseMapper
+    mappers: com.bqr.framework.mybatis.mapper.FrameworkBaseMapper
     not-empty: false
     identity: MYSQL
     before: true

@@ -1,8 +1,8 @@
-package com.bqr.framework.jdbc.provider;
+package com.bqr.framework.mybatis.provider;
 
 import java.util.Set;
 
-import com.bqr.framework.jdbc.util.FrameworkSQLHelper;
+import com.bqr.framework.mybatis.util.FrameworkSQLHelper;
 import org.apache.ibatis.mapping.MappedStatement;
 
 import tk.mybatis.mapper.entity.EntityColumn;

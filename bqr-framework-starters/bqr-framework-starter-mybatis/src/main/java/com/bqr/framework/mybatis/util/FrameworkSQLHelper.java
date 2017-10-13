@@ -1,4 +1,4 @@
-package com.bqr.framework.jdbc.util;
+package com.bqr.framework.mybatis.util;
 
 import java.util.Set;
 

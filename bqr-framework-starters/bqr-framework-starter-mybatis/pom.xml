@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.bqr.framework</groupId>
-    <artifactId>bqr-framework-starter-mybaits</artifactId>
+    <artifactId>bqr-framework-starter-mybatis</artifactId>
     <version>0.1.0.RELEASE</version>
-    <name>bqr-framework-starter-mybaits</name>
+    <name>bqr-framework-starter-mybatis</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

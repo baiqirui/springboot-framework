@@ -22,9 +22,9 @@
  * THE SOFTWARE.
  */
 
-package com.bqr.framework.jdbc.mapper;
+package com.bqr.framework.mybatis.mapper;
 
-import com.bqr.framework.jdbc.provider.PkSqlProvider;
+import com.bqr.framework.mybatis.provider.PkSqlProvider;
 import org.apache.ibatis.annotations.SelectProvider;
 
 

@@ -22,48 +22,34 @@
  * THE SOFTWARE.
  */
 
-package com.bqr.framework.jdbc.mapper;
+package com.bqr.framework.mybatis.entity;
 
-import java.util.List;
+import lombok.Data;
 
-import com.bqr.framework.jdbc.provider.BatchOperaterProvider;
-import org.apache.ibatis.annotations.InsertProvider;
-import org.apache.ibatis.annotations.UpdateProvider;
+import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Transient;
 
-import tk.mybatis.mapper.common.IdsMapper;
-import tk.mybatis.mapper.common.Mapper;
-import tk.mybatis.mapper.common.MySqlMapper;
 
 /**
- * 提供框架默认基础Mapper
- *
- * @author  baiqirui
- * @version  [版本号, 2017年2月14日]
+ * 基础实体类;
+ * 
+ * @author  mealkey
+ * @version  [版本号, 2017年3月20日]
  * @see  [相关类/方法]
  * @since  [产品/模块版本]
  */
-public interface FrameworkBaseMapper<T> extends Mapper<T>, MySqlMapper<T>,IdsMapper<T>, PKSqlMapper<T>
+@Data
+public class BaseEntity implements Serializable
 {
-    // TODO
-    // FIXME 特别注意，该接口不能被扫描到，否则会出错
-    /**
-     * 批量修改
-     *
-     * @param recordList
-     * @return
-     */
-    @UpdateProvider(type = BatchOperaterProvider.class, method = "dynamicSQL")
-    int updateList(List<T> recordList);
+    @Transient
+    private static final long serialVersionUID = 1L;
     
-    /**
-     * 批量新增;
-     *
-     * @param recordList
-     * @return[参数、异常说明]
-     * @return int [返回类型说明]
-     * @see [类、类#方法、类#成员]
-     */
-    @InsertProvider(type = BatchOperaterProvider.class, method = "dynamicSQL")
-    int insertListUnUseGeneratedKeys(List<T> recordList);
+    @Id
+    @Column(name = "Id")
+    private Long id;
+
+
 }

@@ -1,4 +1,4 @@
-package com.bqr.framework.jdbc.provider;
+package com.bqr.framework.mybatis.provider;
 
 import org.apache.ibatis.mapping.MappedStatement;
 
