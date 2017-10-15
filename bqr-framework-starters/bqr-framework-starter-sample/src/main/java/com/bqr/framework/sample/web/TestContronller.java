@@ -4,6 +4,7 @@ import com.bqr.framework.sample.entity.User;
 import com.bqr.framework.sample.service.TestService;
 import com.bqr.framework.web.exception.ArgumentException;
 import com.bqr.framework.web.model.ResultBody;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
+@Slf4j
 @RestController
 @Api(tags = "测试接口")
 public class TestContronller
@@ -42,7 +44,10 @@ public class TestContronller
      @ApiOperation(value = "测试2", response = ResultBody.class)
      public ResultBody test1(@RequestParam Long id)
      {
-         return new ResultBody(testService.get(id));
+         log.debug("参数：" + id);
+         User user = testService.get(id);
+         log.info("查询结果：" + user);
+         return new ResultBody(user);
      }
     
 }
