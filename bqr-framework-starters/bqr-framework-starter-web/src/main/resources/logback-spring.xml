@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <include resource="bqr-framework-logback.xml"/>
+
+  <springProfile name="dev">
+    <!-- 日志输出级别 -->
+    <root level="INFO">
+      <appender-ref ref="CONSOLE"/>
+    </root>
+  </springProfile>
+
+  <springProfile name="test,pro">
+    <!-- 日志输出级别 -->
+    <root level="INFO">
+      <appender-ref ref="CONSOLE"/>
+      <appender-ref ref="INFO"/>
+      <appender-ref ref="ERROR"/>
+    </root>
+  </springProfile>
+</configuration>
