@@ -4,17 +4,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>bqr-framework-boot-starter</artifactId>
-    <name>bqr-framework-boot-starter</name>
-	<description>bqr-framework-boot-starter</description>
+    <artifactId>bqr-framework-starter</artifactId>
+    <name>bqr-framework-starter</name>
+	<description>bqr-framework-starter</description>
 	<packaging>pom</packaging>
 	
 
     <parent>
         <groupId>com.bqr.framework</groupId>
-        <artifactId>bqr-framework-boot-parent</artifactId>
+        <artifactId>bqr-framework-parent</artifactId>
         <version>0.1.0.RELEASE</version>
-        <relativePath>../bqr-framework-boot-parent</relativePath>
+        <relativePath>../bqr-framework-parent</relativePath>
     </parent>
  
 

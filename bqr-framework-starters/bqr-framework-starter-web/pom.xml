@@ -9,11 +9,17 @@
 
     <parent>
         <groupId>com.bqr.framework</groupId>
-        <artifactId>bqr-framework-boot-starter</artifactId>
+        <artifactId>bqr-framework-starter</artifactId>
         <version>0.1.0.RELEASE</version>
     </parent>
 
     <dependencies>
+
+        <dependency>
+            <groupId>com.bqr.framework</groupId>
+            <artifactId>bqr-framework-autoconfigure</artifactId>
+        </dependency>
+
         <!--springboot相关模块 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -87,10 +93,6 @@
         </dependency>
 
 
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>com.belerweb</groupId>

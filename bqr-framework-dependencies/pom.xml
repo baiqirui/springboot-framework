@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.bqr.framework</groupId>
-    <artifactId>bqr-framework-boot-dependencies</artifactId>
+    <artifactId>bqr-framework-dependencies</artifactId>
     <version>0.1.0.RELEASE</version>
-    <name>bqr-framework-boot-dependencies</name>
+    <name>bqr-framework-dependencies</name>
     <packaging>pom</packaging>
 
     <properties>
@@ -28,24 +28,31 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-			
-		<dependency>
-            <groupId>com.bqr.framework</groupId>
-            <artifactId>bqr-framework-starter-swagger</artifactId>
-            <version>${project.version}</version>
-        </dependency>
 
-        <dependency>
-            <groupId>com.bqr.framework</groupId>
-            <artifactId>bqr-framework-starter-web</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-		
-		<dependency>
-            <groupId>com.bqr.framework</groupId>
-            <artifactId>bqr-framework-starter-mybatis</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+
+            <dependency>
+                <groupId>com.bqr.framework</groupId>
+                <artifactId>bqr-framework-autoconfigure</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+			
+            <dependency>
+                <groupId>com.bqr.framework</groupId>
+                <artifactId>bqr-framework-starter-swagger</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.bqr.framework</groupId>
+                <artifactId>bqr-framework-starter-web</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.bqr.framework</groupId>
+                <artifactId>bqr-framework-starter-mybatis</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 		
         </dependencies>
     </dependencyManagement>

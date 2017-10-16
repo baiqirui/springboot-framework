@@ -2,6 +2,7 @@ package com.bqr.framework.swagger;//package com.bqr.framework.swagger;
 
 
 
+import com.bqr.framework.ConditionalOnMapProperty;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

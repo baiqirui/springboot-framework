@@ -1,4 +1,4 @@
-package com.bqr.framework.swagger;
+package com.bqr.framework;
 
 import java.util.Map;
 

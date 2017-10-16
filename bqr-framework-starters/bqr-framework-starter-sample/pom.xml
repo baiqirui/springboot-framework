@@ -37,7 +37,7 @@
         <dependencies>
             <dependency>
                 <groupId>com.bqr.framework</groupId>
-                <artifactId>bqr-framework-boot-dependencies</artifactId>
+                <artifactId>bqr-framework-dependencies</artifactId>
                 <version>${project.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
