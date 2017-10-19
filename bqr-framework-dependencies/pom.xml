@@ -53,6 +53,12 @@
                 <artifactId>bqr-framework-starter-mybatis</artifactId>
                 <version>${project.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.bqr.framework</groupId>
+                <artifactId>bqr-framework-starter-redis</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 		
         </dependencies>
     </dependencyManagement>
