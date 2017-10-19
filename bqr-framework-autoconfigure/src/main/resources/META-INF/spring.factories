@@ -1,3 +1,5 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 com.bqr.framework.swagger.SwaggerConfiguration,\
-com.bqr.framework.redis.JedisClusterConfiguration
+com.bqr.framework.redis.JedisClusterConfiguration,\
+com.bqr.framework.redis.JedisCacheConfiguration,\
+com.bqr.framework.web.config.SpringContextConfig

@@ -2,7 +2,9 @@ package com.bqr.framework.web.json;
 
 import java.text.SimpleDateFormat;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -23,5 +25,7 @@ public class JsonObjectMapper extends ObjectMapper
         setDateFormat(dateFormat);
         configure(SerializationFeature.WRITE_NULL_MAP_VALUES,false);
         configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,false);
+
+
     }
 }
