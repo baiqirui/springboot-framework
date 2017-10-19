@@ -47,3 +47,9 @@ logging:
      com:
        bqr:
          framework: debug
+redis:
+  cluster-nodes: 10.10.3.71:7001
+  expire-seconds: 1200000
+  command-timeout: 5000
+  node: 10.10.3.71:7000
+

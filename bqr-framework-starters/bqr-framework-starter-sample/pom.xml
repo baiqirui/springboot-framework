@@ -31,6 +31,12 @@
         </dependency>
 
 
+        <dependency>
+            <groupId>com.bqr.framework</groupId>
+            <artifactId>bqr-framework-starter-redis</artifactId>
+        </dependency>
+
+
     </dependencies>
 
     <dependencyManagement>

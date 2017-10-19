@@ -5,13 +5,18 @@ import com.bqr.framework.sample.service.TestService;
 import com.bqr.framework.web.exception.ArgumentException;
 import com.bqr.framework.web.model.ResultBody;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import redis.clients.jedis.JedisCluster;
 
 @Slf4j
 @RestController
@@ -20,6 +25,39 @@ public class TestContronller
 {
     @Autowired
     private TestService testService;
+
+    @Autowired
+    private StringRedisTemplate redisTemplate;
+
+    @Autowired
+    private JedisCluster jedisCluster;
+
+
+    @GetMapping("testRedisCluster")
+    @ApiOperation(value = "测试RedisCluster", response = String.class)
+    public String testRedisCluster(@RequestParam String key)
+    {
+        String value = jedisCluster.get(key);
+        if (StringUtils.isBlank(value))
+        {
+            jedisCluster.set(key, "Hello Redis");
+        }
+        return value;
+    }
+
+    @GetMapping("testRedis")
+    @ApiOperation(value = "测试Redis", response = String.class)
+    public String testRedis(@RequestParam String key)
+    {
+        ValueOperations<String, String> valueOps = redisTemplate.opsForValue();
+        String value = valueOps.get(key);
+        if (StringUtils.isBlank(value))
+        {
+            valueOps.set(key, "Hello Redis111");
+        }
+        return value;
+    }
+
     
     // @Transactional
     @PostMapping("test0")
