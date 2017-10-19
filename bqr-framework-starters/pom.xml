@@ -27,6 +27,7 @@
     <module>bqr-framework-starter-web</module>
     <module>bqr-framework-starter-mybatis</module>
 	<module>bqr-framework-starter-swagger</module>
+    <module>bqr-framework-starter-redis</module>
   </modules>
     
 </project>
