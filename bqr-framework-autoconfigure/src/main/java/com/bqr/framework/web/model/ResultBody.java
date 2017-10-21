@@ -27,6 +27,26 @@ public class ResultBody implements Serializable
     {
         super();
     }
+
+    public static ResultBody fail(int code, String message)
+    {
+        return new ResultBody(code, message);
+    }
+
+    public static ResultBody fail(int code)
+    {
+        return new ResultBody(code, ResultCodeConfig.getResultMessage(code));
+    }
+
+    public static ResultBody success()
+    {
+        return new ResultBody(ResultCodeConstant.SUCCESS, ResultCodeConfig.getResultMessage(ResultCodeConstant.SUCCESS));
+    }
+
+    public static ResultBody success(Object data)
+    {
+        return new ResultBody(ResultCodeConstant.SUCCESS, ResultCodeConfig.getResultMessage(ResultCodeConstant.SUCCESS), data);
+    }
     
     public ResultBody(Object data)
     {
