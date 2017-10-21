@@ -21,10 +21,21 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- springboot依赖 -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+
+            <!-- springcloud依赖 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -35,7 +46,7 @@
                 <artifactId>bqr-framework-autoconfigure</artifactId>
                 <version>${project.version}</version>
             </dependency>
-			
+
             <dependency>
                 <groupId>com.bqr.framework</groupId>
                 <artifactId>bqr-framework-starter-swagger</artifactId>
@@ -59,7 +70,13 @@
                 <artifactId>bqr-framework-starter-redis</artifactId>
                 <version>${project.version}</version>
             </dependency>
-		
+
+            <dependency>
+                <groupId>com.bqr.framework</groupId>
+                <artifactId>bqr-framework-starter-feign</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
