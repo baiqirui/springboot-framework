@@ -15,12 +15,13 @@
 
 
     <dependencies>
+
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
+            <groupId>com.bqr.framework</groupId>
+            <artifactId>bqr-framework-autoconfigure</artifactId>
         </dependency>
-		
+
+        <!-- jdbc -->
 		<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
@@ -53,10 +54,6 @@
 			<artifactId>pagehelper-spring-boot-starter</artifactId>
 		</dependency>
  
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>commons-lang</groupId>
