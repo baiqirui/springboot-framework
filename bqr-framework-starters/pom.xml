@@ -28,6 +28,7 @@
     <module>bqr-framework-starter-mybatis</module>
 	<module>bqr-framework-starter-swagger</module>
     <module>bqr-framework-starter-redis</module>
+	<module>bqr-framework-starter-feign</module>
   </modules>
     
 </project>
