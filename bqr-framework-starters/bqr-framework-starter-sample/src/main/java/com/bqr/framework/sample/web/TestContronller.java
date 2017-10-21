@@ -1,5 +1,6 @@
 package com.bqr.framework.sample.web;
 
+import com.bqr.framework.redis.RedisService;
 import com.bqr.framework.sample.entity.User;
 import com.bqr.framework.sample.service.TestService;
 import com.bqr.framework.web.exception.ArgumentException;
@@ -26,36 +27,27 @@ public class TestContronller
     @Autowired
     private TestService testService;
 
-    @Autowired
-    private StringRedisTemplate redisTemplate;
-
-    @Autowired
-    private JedisCluster jedisCluster;
+//    @Autowired
+//    private RedisService redisService;
 
 
-    @GetMapping("testRedisCluster")
-    @ApiOperation(value = "测试RedisCluster", response = String.class)
-    public String testRedisCluster(@RequestParam String key)
-    {
-        String value = jedisCluster.get(key);
-        if (StringUtils.isBlank(value))
-        {
-            jedisCluster.set(key, "Hello Redis");
-        }
-        return value;
-    }
+//    @GetMapping("testRedisCluster")
+//    @ApiOperation(value = "测试RedisCluster", response = String.class)
+//    public String testRedisCluster(@RequestParam String key)
+//    {
+//        String value = redisService.get(key);
+//        if (StringUtils.isBlank(value))
+//        {
+//            redisService.set(key, "Hello RedisSerivce");
+//        }
+//        return value;
+//    }
 
-    @GetMapping("testRedis")
+    @GetMapping("testRedisAnonation")
     @ApiOperation(value = "测试Redis", response = String.class)
-    public String testRedis(@RequestParam String key)
+    public User testRedisAnonation(@RequestParam Long id)
     {
-        ValueOperations<String, String> valueOps = redisTemplate.opsForValue();
-        String value = valueOps.get(key);
-        if (StringUtils.isBlank(value))
-        {
-            valueOps.set(key, "Hello Redis111");
-        }
-        return value;
+        return testService.getUser(id, "testRedisAnonation");
     }
 
     
