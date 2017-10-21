@@ -1,7 +1,7 @@
 package com.bqr.framework.feign;
 
 
-import com.bqr.framework.constant.ResultConstant;
+import com.bqr.framework.constant.ResultCodeConstant;
 import com.bqr.framework.web.model.ResultBody;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
@@ -38,7 +38,7 @@ public class FeignConfiguration
             log.error("feign error:", e);
             if (e instanceof HystrixTimeoutException)
             {
-                return  ResultBody.fail(ResultConstant.HTTP_INNTER_READ_TIME_OUT);
+                return  ResultBody.fail(ResultCodeConstant.HTTP_INNTER_READ_TIME_OUT);
             }
             else if (e instanceof feign.RetryableException)
             {
@@ -46,11 +46,11 @@ public class FeignConfiguration
                 {
                     if (e.getLocalizedMessage().contains("Connection refused"))
                     {
-                        return  ResultBody.fail(ResultConstant.HTTP_INNTER_CONNECTION_TIME_OUT);
+                        return  ResultBody.fail(ResultCodeConstant.HTTP_INNTER_CONNECTION_TIME_OUT);
                     }
                     else if (e.getLocalizedMessage().contains("Read timed out"))
                     {
-                        return  ResultBody.fail(ResultConstant.HTTP_INNTER_READ_TIME_OUT);
+                        return  ResultBody.fail(ResultCodeConstant.HTTP_INNTER_READ_TIME_OUT);
                     }
 
                 }
@@ -63,11 +63,11 @@ public class FeignConfiguration
                     String message = e.getCause().getLocalizedMessage();
                     if (StringUtils.isNotBlank(message) && message.contains(LOAD_BALANCER_NOT_AVAILABLE))
                     {
-                        return  ResultBody.fail(ResultConstant.HTTP_INNTER_SERVICE_NOT_AVAILABLE);
+                        return  ResultBody.fail(ResultCodeConstant.HTTP_INNTER_SERVICE_NOT_AVAILABLE);
                     }
                 }
             }
-            return  ResultBody.fail(ResultConstant.HTTP_INNTER_ERROR);
+            return  ResultBody.fail(ResultCodeConstant.HTTP_INNTER_ERROR);
         }
     }
 

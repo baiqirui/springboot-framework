@@ -6,13 +6,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bqr.framework.web.config.ResultCodeConfig;
-import com.bqr.framework.web.constant.ResultCodeConstant;
 import com.bqr.framework.web.model.ResultBody;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver;
+import com.bqr.framework.constant.ResultCodeConstant;
 
 
 import lombok.extern.slf4j.Slf4j;
@@ -49,9 +49,9 @@ public class GlobalExceptionHandler extends ExceptionHandlerExceptionResolver
             // 解析原错误信息，封装后返回，此处返回非法的字段名称，原始值，错误信息
             for (FieldError error : exception.getBindingResult().getFieldErrors())
             {
-                String errorMsg = ResultCodeConfig.getResultMessage(ResultCodeConstant.PARAM_EXCEPTION);
+                String errorMsg = ResultCodeConfig.getResultMessage(ResultCodeConstant.PARAMETER_INVALID);
                 errorMsg = MessageFormat.format(errorMsg, error.getField(), error.getDefaultMessage());
-                return new ResultBody(ResultCodeConstant.PARAM_EXCEPTION, errorMsg);
+                return new ResultBody(ResultCodeConstant.PARAMETER_INVALID, errorMsg);
             }
         }
         return ResultBody.createUnKnowExceptionResultBody();

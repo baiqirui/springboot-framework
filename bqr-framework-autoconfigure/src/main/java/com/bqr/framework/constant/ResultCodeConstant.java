@@ -3,7 +3,7 @@ package com.bqr.framework.constant;
 /**
  * 框架自定义错误码.100001 - 100999
  */
-public class ResultConstant
+public class ResultCodeConstant
 {
     public static final int UNKONW_EXCEPTION = -1;
     
