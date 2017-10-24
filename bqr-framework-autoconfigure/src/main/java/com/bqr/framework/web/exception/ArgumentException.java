@@ -1,6 +1,6 @@
 package com.bqr.framework.web.exception;
 
-import com.bqr.framework.web.constant.ResultCodeConstant;
+import com.bqr.framework.constant.ResultCodeConstant;
 import org.apache.commons.lang.enums.EnumUtils;
 
 
@@ -22,18 +22,7 @@ public class ArgumentException extends ExceptionBase
         super(errorCode, arguments);
     }
     
-    /**
-     * 创建 ArgumentException 异常，并指定导致异常的原因为 “目标数组的长度不足”。
-     * 
-     * @param argumentName 参数的名称。
-     * @return ArgumentException 异常。
-     */
-    public static ArgumentException createArrayTooSmall(String argumentName)
-    {
-        ArgumentException ex = new ArgumentException(ResultCodeConstant.ARRAY_TOO_SMALL, argumentName);
-        return ex;
-    }
-    
+
     /**
      * 检测参数值是否为空引用、空字符串或者只包含空白字符的字符串。
      * 
@@ -55,7 +44,7 @@ public class ArgumentException extends ExceptionBase
      */
     public static ArgumentException createNullOrBlankString(String argumentName)
     {
-        ArgumentException ex = new ArgumentException(ResultCodeConstant.NULL_OR_BLANK_STRING, argumentName);
+        ArgumentException ex = new ArgumentException(ResultCodeConstant.PARAMETER_IS_NULL_OR_EMPTY, argumentName);
         return ex;
     }
     
@@ -66,7 +55,7 @@ public class ArgumentException extends ExceptionBase
      */
     public static ArgumentException createOutOfRange(String argumentName)
     {
-        ArgumentException ex = new ArgumentException(ResultCodeConstant.OUT_OF_RANGE, argumentName);
+        ArgumentException ex = new ArgumentException(ResultCodeConstant.PARAMETER_IS_OUT_OF_RANGE, argumentName);
         return ex;
     }
     
@@ -77,7 +66,7 @@ public class ArgumentException extends ExceptionBase
      */
     public static ArgumentException createNotBetweenIn(String... argumentNames)
     {
-        ArgumentException ex = new ArgumentException(ResultCodeConstant.NOT_BETWEEN_IN, argumentNames);
+        ArgumentException ex = new ArgumentException(ResultCodeConstant.PARAMETER_IS_NOT_BETWEEN_IN, argumentNames);
         return ex;
     }
     
@@ -107,7 +96,7 @@ public class ArgumentException extends ExceptionBase
      */
     public static ArgumentException createNotEnumIn(String... argumentNames)
     {
-        ArgumentException ex = new ArgumentException(ResultCodeConstant.NOT_ENUM_IN, argumentNames);
+        ArgumentException ex = new ArgumentException(ResultCodeConstant.PARAMETER_IS_NOT_ENUM_IN, argumentNames);
         return ex;
     }
     

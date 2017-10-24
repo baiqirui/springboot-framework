@@ -2,8 +2,8 @@ package com.bqr.framework.web.exception;
 
 import java.text.MessageFormat;
 
+import com.bqr.framework.constant.ResultCodeConstant;
 import com.bqr.framework.web.config.ResultCodeConfig;
-import com.bqr.framework.web.constant.ResultCodeConstant;
 import org.apache.commons.lang.StringUtils;
 
 

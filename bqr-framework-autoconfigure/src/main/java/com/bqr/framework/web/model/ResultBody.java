@@ -1,7 +1,7 @@
 package com.bqr.framework.web.model;
 
+import com.bqr.framework.constant.ResultCodeConstant;
 import com.bqr.framework.web.config.ResultCodeConfig;
-import com.bqr.framework.web.constant.ResultCodeConstant;
 
 import java.io.Serializable;
 
