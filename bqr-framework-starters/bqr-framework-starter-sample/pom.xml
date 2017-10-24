@@ -37,6 +37,17 @@
         </dependency>
 
 
+        <!-- springcloud -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.bqr.framework</groupId>
+            <artifactId>bqr-framework-starter-feign</artifactId>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
@@ -57,13 +68,17 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
             </plugin>
 
             <!---->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>1.5.7.RELEASE</version>
+                <version>1.5.8.RELEASE</version>
                 <executions>
                     <execution>
                         <goals>
