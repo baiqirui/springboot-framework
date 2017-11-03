@@ -77,6 +77,12 @@
                 <version>${project.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.bqr.framework</groupId>
+                <artifactId>bqr-framework-starter-xxljob</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -126,11 +132,31 @@
         </pluginManagement>
     </build>
 
-    <repositories>
+    <distributionManagement>
         <repository>
-            <id>nexus-aliyun</id>
-            <name>Nexus aliyun</name>
-            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+            <id>bqr-nexus-releases</id>
+            <name>bqr-nexus-releases</name>
+            <url>http://47.93.229.100:8081/repository/maven-releases/</url>
         </repository>
-    </repositories>
+        <snapshotRepository>
+            <id>bqr-nexus-snapshot</id>
+            <name>bqr-nexus-snapshot</name>
+            <url>http://47.93.229.100:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+    <!--
+        <repositories>
+            <repository>
+                <id>bqr-nexus</id>
+                <name>Nexus aliyun</name>
+                <url>http://47.93.229.100:8081/repository/maven-public/</url>
+            </repository>
+
+            <repository>
+                <id>nexus-aliyun</id>
+                <name>Nexus aliyun</name>
+                <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+            </repository>
+
+    </repositories> -->
 </project>
