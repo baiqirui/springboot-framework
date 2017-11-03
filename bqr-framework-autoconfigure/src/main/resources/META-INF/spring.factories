@@ -3,4 +3,5 @@ com.bqr.framework.swagger.SwaggerConfiguration,\
 com.bqr.framework.redis.JedisClusterConfiguration,\
 com.bqr.framework.redis.JedisCacheConfiguration,\
 com.bqr.framework.web.config.SpringContextConfig,\
-com.bqr.framework.feign.FeignConfiguration
+com.bqr.framework.feign.FeignConfiguration,\
+com.bqr.framework.xxljob.XxlJobConfiguration
