@@ -29,6 +29,7 @@
 	<module>bqr-framework-starter-swagger</module>
     <module>bqr-framework-starter-redis</module>
 	<module>bqr-framework-starter-feign</module>
+	<module>bqr-framework-starter-xxljob</module>
   </modules>
     
 </project>
