@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.bqr.framework</groupId>
+  <artifactId>bqr-framework-build</artifactId>
+  <packaging>pom</packaging>
+  <version>0.1.0-SNAPSHOT</version>
+  <name>bqr-framework-build</name>
+  <description>bqr-framework-build</description>
+
+
+  <properties>
+    <main.basedir>${basedir}</main.basedir>
+  </properties>
+  
+  <profiles>
+    <profile>
+      <id>default</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <modules>
+        <module>bqr-framework-autoconfigure</module>
+        <module>bqr-framework-dependencies</module>
+        <module>bqr-framework-starters</module>
+        <module>bqr-framework-parent</module>
+      </modules>
+    </profile>
+  </profiles>
+  
+  <repositories>
+    <repository>
+      <id>bqr-nexus</id>
+      <name>huinong nexus repository</name>
+      <url>http://47.93.229.100:8081/repository/maven-public/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+	
+	<repository>
+         <id>nexus-aliyun</id>
+         <name>Nexus aliyun</name>
+         <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+    </repository>
+  </repositories>
+  
+   <distributionManagement>
+        <repository>
+            <id>bqr-nexus-releases</id>
+            <name>bqr-nexus-releases</name>
+            <url>http://47.93.229.100:8081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>bqr-nexus-snapshot</id>
+            <name>bqr-nexus-snapshot</name>
+            <url>http://47.93.229.100:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+</project>
