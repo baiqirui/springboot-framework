@@ -30,14 +30,14 @@
             <artifactId>bqr-framework-starter-mybatis</artifactId>
         </dependency>
 
-
+ <!--
         <dependency>
             <groupId>com.bqr.framework</groupId>
             <artifactId>bqr-framework-starter-redis</artifactId>
         </dependency>
 
 
-        <!-- springcloud -->
+        springcloud 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka</artifactId>
@@ -47,6 +47,13 @@
         <dependency>
             <groupId>com.bqr.framework</groupId>
             <artifactId>bqr-framework-starter-feign</artifactId>
+        </dependency>
+        -->
+        
+        <!-- xxljob -->
+            <dependency>
+            <groupId>com.bqr.framework</groupId>
+            <artifactId>bqr-framework-starter-xxljob</artifactId>
         </dependency>
     </dependencies>
 

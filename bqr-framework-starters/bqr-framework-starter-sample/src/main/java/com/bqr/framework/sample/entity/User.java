@@ -17,10 +17,10 @@ import lombok.Data;
 public class User extends BaseEntity
 {
     private String name;
-    
+
     private Integer age;
-    
+
     private Long classId;
-    
+
     private Long groupId;
 }

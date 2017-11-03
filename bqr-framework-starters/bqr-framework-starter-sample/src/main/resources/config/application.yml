@@ -1,11 +1,12 @@
+server:
+  port: 8073
+
 swagger:  #惠农swagger配置
    enable: true  # 是否开启swagger，建议生产关闭，默认true
    basePackage: com.bqr.framework.sample.web  #swagger扫描的api包，不能为空
    title: 惠农行情接入API列表  # 标题
    description: 惠农行情接入API列表 #描述
    groupName: 测试组
-
-
 
 spring:
   datasource:
@@ -15,12 +16,10 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
   profiles:
-    active: test
+    active: dev
   application:
     name: bqr-framework-starter-sample
-
-
-
+    
 mybatis:
     type-aliases-package: com.bqr.framework.sample.entity
 #    mapper-locations: classpath:mapper/**/*.xml
@@ -33,7 +32,8 @@ mybatis:
 #    not-empty: false
 #    identity: MYSQL
 #    before: true
-#
+
+
 #pagehelper:
 #    helperDialect: mysql
 #    reasonable: true
@@ -47,7 +47,30 @@ logging:
      com:
        bqr:
          framework: debug
+
+#eureka:
+#  instance:
+#    appname: ${spring.application.name}
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/
+
 #redis:
 #  cluster-nodes: 10.10.3.71:7001
 #  expire-seconds: 1200000
 #  command-timeout: 5000
+
+
+xxljob:
+  port: 9993
+  appname: bqr-framrework-xxljob
+  addresses: http://127.0.0.1:8080/xxl-job-admin
+#  addresses: http://47.93.229.100:8080/xxl-job-admin
+  logpath: xxljobLogs
+
+
+
+
+
+
+

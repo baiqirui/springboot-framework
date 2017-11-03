@@ -20,13 +20,13 @@ public class TestService extends BaseService<User>
 {
     @Autowired
     private TestMapper testMapper;
-    
+
     @Override
     protected FrameworkBaseMapper<User> getMapper()
     {
         return testMapper;
     }
-    
+
     @Cacheable(value = "testUser", key = "#key.concat(#id)")
     public User getUser(Long id, String key)
     {
@@ -35,6 +35,6 @@ public class TestService extends BaseService<User>
         user.setAge(18);
         user.setName("xxxx");
         return user;
-        
+
     }
 }
