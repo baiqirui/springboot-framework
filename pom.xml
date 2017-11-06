@@ -5,7 +5,7 @@
   <groupId>com.bqr.framework</groupId>
   <artifactId>bqr-framework-build</artifactId>
   <packaging>pom</packaging>
-  <version>0.1.0-SNAPSHOT</version>
+  <version>0.1.0.RELEASE</version>
   <name>bqr-framework-build</name>
   <description>bqr-framework-build</description>
 
