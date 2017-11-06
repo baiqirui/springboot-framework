@@ -1,6 +1,65 @@
-spring:
-  application:
-    name: {{artifactId}}
-
 server:
   port: 8080
+
+{{#useSwaggerModel}}
+swagger:  #swagger配置
+   enable: true  # 是否开启swagger，建议生产关闭，默认true
+   basePackage: {{packageName}}  #swagger扫描的api包，不能为空
+   title:  接入API列表  # 标题
+   description: 惠农行情接入API列表 #描述
+   groupName: group-1
+{{/useSwaggerModel}}
+
+
+
+spring:
+  profiles:
+      active: dev
+  application:
+      name: {{artifactId}}
+{{#useMybatisModel}}
+  datasource:
+    url: jdbc:mysql://rm-uf69j55wv3m56puj5o.mysql.rds.aliyuncs.com:3306/b2b_market #mysql连接地址
+    username: root  #mysql用户名
+    password: XiangYR-816  #mysql密码
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+mybatis:
+    type-aliases-package: {{packageName}}.entity
+{{/useMybatisModel}}
+
+
+
+{{#useWebModel}}
+logging:
+  file: ${spring.application.name}
+  path: logs
+{{/useWebModel}}
+
+
+{{#useRedisModel}}
+redis:
+  cluster-nodes: 10.10.3.71:7001 #redis集群地址
+  expire-seconds: 1200000
+  command-timeout: 5000
+{{/useRedisModel}}
+
+
+{{#useCloudModel}}
+eureka:
+  instance:
+    appname: ${spring.application.name}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+{{/useCloudModel}}
+
+
+{{#useXxlJobModel}}
+xxljob:
+  port: 9993 #xxljob执行器通信端口
+  appname: bqr-framrework-xxljob
+  addresses: http://127.0.0.1:8080/xxl-job-admin #xxljob调度器地址
+  logpath: xxljobLogs
+{{/useXxlJobModel}}

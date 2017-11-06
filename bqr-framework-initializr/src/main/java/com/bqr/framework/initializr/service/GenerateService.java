@@ -1,5 +1,6 @@
 package com.bqr.framework.initializr.service;
 
+import com.bqr.framework.initializr.domain.CompileDependency;
 import com.bqr.framework.initializr.domain.ProjectRequest;
 import com.bqr.framework.initializr.utils.TemplateRenderer;
 import com.bqr.framework.initializr.utils.ZipUtils;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cglib.beans.BeanMap;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.FileSystemUtils;
 import org.springframework.util.StreamUtils;
 
@@ -16,8 +18,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.charset.Charset;
-import java.util.Arrays;
-import java.util.Map;
+import java.util.*;
 
 /**
  *
@@ -25,6 +26,21 @@ import java.util.Map;
 @Service
 public class GenerateService
 {
+
+    private static final String BQR_FRAMEWORK_STARTER_WEB = "bqr-framework-starter-web";
+
+    private static final String BQR_FRAMEWORK_STARTER_MYBATIS = "bqr-framework-starter-mybatis";
+
+    private static final String BQR_FRAMEWORK_STARTER_REDIS = "bqr-framework-starter-redis";
+
+    private static final String BQR_FRAMEWORK_STARTER_FEIGN = "bqr-framework-starter-feign";
+
+    private static final String BQR_FRAMEWORK_STARTER_SWAGGER = "bqr-framework-starter-swagger";
+
+    private static final String BQR_FRAMEWORK_STARTER_XXLJOB = "bqr-framework-starter-xxljob";
+
+    private static final String BQR_FRAMEWORK_STARTER_CLOUD = "bqr-framework-starter-cloud";
+
     
     @Autowired
     private TemplateRenderer templateRenderer;
@@ -40,13 +56,14 @@ public class GenerateService
     
     public File generateProject(ProjectRequest request) throws Exception
     {
-        Map model = BeanMap.create(request);
-        // 1.先生成根目录结构
+        //1. 将参数转换成Map结构
+        Map model = convertToMap(request);
+        // 2.先生成根目录结构
         rootDir = createRootDir();
         projectDir = new File(rootDir, request.getArtifactId());
         projectDir.mkdir();
         
-        // 2.先生成pom文件
+        // 3.先生成pom文件
         generatePom(model);
         
         // 4.再生成src目录结构
@@ -60,6 +77,49 @@ public class GenerateService
         ZipUtils.compress(projectDir, zipFile, true);
 
         return zipFile;
+    }
+
+    private Map convertToMap(ProjectRequest request)
+    {
+        Map model = new HashMap(BeanMap.create(request));
+        //设置pom子模块标识
+        List<CompileDependency> compileDependencies = request.getCompileDependencies();
+        if (!CollectionUtils.isEmpty(compileDependencies))
+        {
+            compileDependencies.stream().forEach(dependency ->
+            {
+                if (BQR_FRAMEWORK_STARTER_WEB.equals(dependency.getArtifactId()))
+                {
+                    model.put("useWebModel", true);
+                }
+                else if (BQR_FRAMEWORK_STARTER_MYBATIS.equals(dependency.getArtifactId()))
+                {
+                    model.put("useMybatisModel", true);
+                }
+                else if (BQR_FRAMEWORK_STARTER_REDIS.equals(dependency.getArtifactId()))
+                {
+                    model.put("useRedisModel", true);
+                }
+                else if (BQR_FRAMEWORK_STARTER_FEIGN.equals(dependency.getArtifactId()))
+                {
+                    model.put("useFeignModel", true);
+                }
+                else if (BQR_FRAMEWORK_STARTER_SWAGGER.equals(dependency.getArtifactId()))
+                {
+                    model.put("useSwaggerModel", true);
+                }
+                else if (BQR_FRAMEWORK_STARTER_XXLJOB.equals(dependency.getArtifactId()))
+                {
+                    model.put("useXxlJobModel", true);
+                }
+                else if (BQR_FRAMEWORK_STARTER_CLOUD.equals(dependency.getArtifactId()))
+                {
+                    model.put("useCloudModel", true);
+                }
+            });
+        }
+        return  model;
+
     }
 
     private void generateGitignore()
@@ -83,6 +143,11 @@ public class GenerateService
 
         StringBuffer mainResourceDirPath = new StringBuffer("src");
         mainResourceDirPath.append(File.separator).append("main").append(File.separator).append("resources").append(File.separator);
+        //如果使用的mybatis模块则将yml配置文件放入resources/config目录下，防止mybatis模块自身的的yml被覆盖;
+        if (Objects.equals(model.get("useMybatisModel"), true))
+        {
+            mainResourceDirPath.append("config").append(File.separator);
+        }
 
         StringBuffer testDirPath = new StringBuffer("src");
         testDirPath.append(File.separator).append("test").append(File.separator).append("java").append(File.separator);
@@ -107,6 +172,39 @@ public class GenerateService
         mainJavaDir.mkdirs();
         testDir.mkdirs();
         mainResourceDir.mkdirs();
+
+
+        //根据加载不同的子模块来创建不同的目录结构
+        if (Objects.equals(model.get("useWebModel"), true))
+        {
+            File controllerDir = new File(mainJavaDir, "controller");
+            File serviceDir = new File(mainJavaDir, "service");
+            File domainDir = new File(mainJavaDir, "domain");
+            controllerDir.mkdir();
+            serviceDir.mkdir();
+            domainDir.mkdir();
+        }
+
+        if (Objects.equals(model.get("useMybatisModel"), true))
+        {
+            File mapperDir = new File(mainJavaDir, "mapper");
+            File entityDir = new File(mainJavaDir, "service");
+            mapperDir.mkdir();
+            entityDir.mkdir();
+        }
+
+        if (Objects.equals(model.get("useFeignModel"), true))
+        {
+            File feignDir = new File(mainJavaDir, "feign");
+            feignDir.mkdir();
+        }
+
+        if (Objects.equals(model.get("useXxlJobModel"), true))
+        {
+            File jobHandlerDir = new File(mainJavaDir, "jobhandler");
+            jobHandlerDir.mkdir();
+        }
+
 
         //创建Application.java启动类
         String javaContent = templateRenderer.process("Application.java", model);
