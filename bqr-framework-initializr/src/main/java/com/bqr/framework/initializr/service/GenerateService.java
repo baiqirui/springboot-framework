@@ -57,7 +57,7 @@ public class GenerateService
 
         // 6.最后用zip进行压缩
         File zipFile = new File(rootDir,request.getArtifactId() + ".zip");
-        ZipUtils.compress(projectDir, zipFile);
+        ZipUtils.compress(projectDir, zipFile, true);
 
         return zipFile;
     }

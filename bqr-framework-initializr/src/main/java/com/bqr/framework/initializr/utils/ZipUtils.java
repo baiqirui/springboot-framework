@@ -201,7 +201,7 @@ public final class ZipUtils
      * 
      * @param sourceFile [源文件]
      * @param targetFiles [目标文件]
-     * @param isRequireRoot [是否需要将更目录也压缩]
+     * @param isRequireRoot [是否需要将根目录也压缩]
      * 
      * @return void [返回类型说明]
      * @throws Exception
