@@ -71,7 +71,7 @@
     </dependencyManagement>
 
     <build>
-        <finalName>{{artifactId}}-service</finalName>
+        <finalName>{{artifactId}}</finalName>
 
         <plugins>
             <plugin>
