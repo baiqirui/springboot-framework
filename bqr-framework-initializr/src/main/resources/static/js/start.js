@@ -270,8 +270,8 @@ $(function () {
         var packageName = $("<input>").attr("type", "hidden").attr("name", "packageName").val($("#packageName").val());
         var groupId = $("<input>").attr("type", "hidden").attr("name", "groupId").val($("#groupId").val());
         var artifactId = $("<input>").attr("type", "hidden").attr("name", "artifactId").val($("#artifactId").val());
-        var versionToken = $("<input>").attr("type", "hidden").attr("name", "versionToken").val($("#versionToken").val());
-        $("#form").append(bootstrapApplicationName).append(packageName).append(groupId).append(artifactId).append(versionToken);
+        var frameworkVersion = $("<input>").attr("type", "hidden").attr("name", "frameworkVersion").val($("#frameworkVersion").val());
+        $("#form").append(bootstrapApplicationName).append(packageName).append(groupId).append(artifactId).append(frameworkVersion);
         $("#form").submit();
         return false;
     }

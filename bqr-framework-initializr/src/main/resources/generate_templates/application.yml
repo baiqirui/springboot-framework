@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: {{artifactId}}
+
+server:
+  port: 8080
+
+hnSwagger:
+  basePackage: {{packageName}}.web.controller
+  title: 基础架构
+  description: 惠农架构组描述

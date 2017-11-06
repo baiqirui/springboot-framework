@@ -6,7 +6,7 @@ spring:
     name: bqr-initializr
   thymeleaf:
     cache: false
-    prefix: classpath:/templates/
+    prefix: classpath:/thymeleaf_templates/
     mode: LEGACYHTML5
 
 

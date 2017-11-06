@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/bootstrap-theme.min.css"/>
     <link rel="stylesheet" href="/css/spring.css"/>
-    <title>HN project initializr</title>
+    <title>BQR Framework project initializr</title>
 </head>
 <body>
 <div class="container start-main">
@@ -13,8 +13,8 @@
         <div class="form-group project-choice">
             <h2>
                     <span class="rwd-line">
-                        <label th:text="'BQR framework dependencies:&nbsp' + ${version}">HN framework dependencies:</label>
-                        <input type="hidden" name="versionToken" id="versionToken" th:value="${version}">
+                        <label th:text="'BQR Framework dependencies:&nbsp' + ${frameworkVersion}">BQR Framework dependencies:</label>
+                        <input type="hidden" name="frameworkVersion" id="frameworkVersion" th:value="${frameworkVersion}">
                     </span>
             </h2>
         </div>
@@ -107,7 +107,7 @@
         </p>
     </div>
 </div>
-<form method="post" id="form" action="/starter.zip" class="hidden">
+<form method="post" id="form" action="/generate" class="hidden">
 </form>
 <script src="/js/jquery-3.1.1.min.js"></script>
 <script src="/js/typeahead.bundle.js"></script>
