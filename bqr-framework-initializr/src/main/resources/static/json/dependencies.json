@@ -1,0 +1,37 @@
+[
+  {
+    "groupId": "com.bqr.framework",
+    "artifactId": "bqr-framework-starter-web",
+    "name": "web"
+  },
+  {
+    "groupId": "com.bqr.framework",
+    "artifactId": "bqr-framework-starter-mybatis",
+    "name": "mybatis"
+  },
+  {
+    "groupId": "com.bqr.framework",
+    "artifactId": "bqr-framework-starter-redis",
+    "name": "redis"
+  },
+  {
+    "groupId": "com.bqr.framework",
+    "artifactId": "bqr-framework-starter-xxljob",
+    "name": "elasticjob"
+  },
+  {
+    "groupId": "com.bqr.framework",
+    "artifactId": "bqr-framework-starter-rabbitmq",
+    "name": "sleuth"
+  },
+  {
+    "groupId": "com.bqr.framework",
+    "artifactId": "bqr-framework-starter-feign",
+    "name": "feign"
+  },
+  {
+    "groupId": "com.bqr.framework",
+    "artifactId": "bqr-framework-starter-swagger",
+    "name": "swagger"
+  }
+]
