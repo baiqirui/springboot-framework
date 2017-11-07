@@ -143,11 +143,7 @@ public class GenerateService
 
         StringBuffer mainResourceDirPath = new StringBuffer("src");
         mainResourceDirPath.append(File.separator).append("main").append(File.separator).append("resources").append(File.separator);
-        //如果使用的mybatis模块则将yml配置文件放入resources/config目录下，防止mybatis模块自身的的yml被覆盖;
-        if (Objects.equals(model.get("useMybatisModel"), true))
-        {
-            mainResourceDirPath.append("config").append(File.separator);
-        }
+
 
         StringBuffer testDirPath = new StringBuffer("src");
         testDirPath.append(File.separator).append("test").append(File.separator).append("java").append(File.separator);
@@ -215,7 +211,18 @@ public class GenerateService
 
         //创建application.yml
         String ymlContent = templateRenderer.process("application.yml", model);
-        File yml = new File(mainResourceDir, "application.yml");
+        //如果使用的mybatis模块则将yml配置文件放入resources/config目录下，防止mybatis模块自身的的yml被覆盖;
+        File yml = null;
+        if (Objects.equals(model.get("useMybatisModel"), true))
+        {
+            File resourceConfigDir = new File(mainResourceDir, "config");
+            resourceConfigDir.mkdir();
+            yml = new File(resourceConfigDir, "application.yml");
+        }
+        else
+        {
+            yml = new File(mainResourceDir, "application.yml");
+        }
         writeText(yml, ymlContent);
 
     }

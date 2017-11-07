@@ -58,13 +58,16 @@ public class InitializrController
         log.info("Uploading: {} ({} bytes)", projectFile, content.length);
         String contentDispositionValue = "attachment; filename=\"" + request.getArtifactId() + ".zip" + "\"";
 
-        //删除目录
-//        generateService.cleanProjectDir();
-
-        return ResponseEntity.ok()
+        ResponseEntity<byte[]> response = ResponseEntity.ok()
                 .header("Content-Type", "application/zip")
                 .header("Content-Disposition", contentDispositionValue)
-                .body(content);        
+                .body(content);
+
+        fileInputStream.close();
+        //删除目录
+        generateService.cleanProjectDir();
+
+        return response;
     }
     
 }
