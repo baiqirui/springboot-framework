@@ -184,7 +184,7 @@ public class GenerateService
         if (Objects.equals(model.get("useMybatisModel"), true))
         {
             File mapperDir = new File(mainJavaDir, "mapper");
-            File entityDir = new File(mainJavaDir, "service");
+            File entityDir = new File(mainJavaDir, "entity");
             File mapperResourceDir = new File(mainResourceDir, "mapper");
             mapperDir.mkdir();
             entityDir.mkdir();
