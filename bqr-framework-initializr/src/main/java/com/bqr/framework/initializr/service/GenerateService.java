@@ -189,8 +189,10 @@ public class GenerateService
         {
             File mapperDir = new File(mainJavaDir, "mapper");
             File entityDir = new File(mainJavaDir, "service");
+            File mapperResourceDir = new File(mainResourceDir, "mapper");
             mapperDir.mkdir();
             entityDir.mkdir();
+            mapperResourceDir.mkdir();
         }
 
         if (Objects.equals(model.get("useFeignModel"), true))
