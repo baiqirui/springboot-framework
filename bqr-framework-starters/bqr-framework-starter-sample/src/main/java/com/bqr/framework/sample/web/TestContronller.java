@@ -1,5 +1,6 @@
 package com.bqr.framework.sample.web;
 
+import com.bqr.framework.sample.rabbitmq.HelloSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +22,9 @@ public class TestContronller
 {
     @Autowired
     private TestService testService;
+
+    @Autowired
+    private HelloSender helloSender;
 
 //    @Autowired
 //    private ComputeClient computeClient;
@@ -87,5 +91,13 @@ public class TestContronller
 //        ResultBody a1 = computeClient.getA(a, "1234567899");
 //        return a1;
 //    }
+
+    @PostMapping("testRabbit")
+    @ApiOperation(value = "测试2", response = ResultBody.class)
+    public ResultBody testRabbit(@RequestBody User user)
+    {
+        helloSender.sendUser(user);
+        return ResultBody.success();
+    }
 
 }

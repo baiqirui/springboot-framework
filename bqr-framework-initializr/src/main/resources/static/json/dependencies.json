@@ -17,12 +17,7 @@
   {
     "groupId": "com.bqr.framework",
     "artifactId": "bqr-framework-starter-xxljob",
-    "name": "elasticjob"
-  },
-  {
-    "groupId": "com.bqr.framework",
-    "artifactId": "bqr-framework-starter-rabbitmq",
-    "name": "sleuth"
+    "name": "xxljob"
   },
   {
     "groupId": "com.bqr.framework",
@@ -33,5 +28,10 @@
     "groupId": "com.bqr.framework",
     "artifactId": "bqr-framework-starter-swagger",
     "name": "swagger"
+  },
+  {
+    "groupId": "com.bqr.framework",
+    "artifactId": "bqr-framework-starter-cloud",
+    "name": "cloud"
   }
 ]

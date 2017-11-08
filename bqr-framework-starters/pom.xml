@@ -30,6 +30,7 @@
     <module>bqr-framework-starter-redis</module>
 	<module>bqr-framework-starter-feign</module>
 	<module>bqr-framework-starter-xxljob</module>
+	<module>bqr-framework-starter-cloud</module>
   </modules>
     
 </project>
