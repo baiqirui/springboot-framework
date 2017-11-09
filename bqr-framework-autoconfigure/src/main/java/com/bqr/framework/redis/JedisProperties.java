@@ -5,9 +5,12 @@ import java.util.function.Supplier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import lombok.Data;
+import org.springframework.validation.annotation.Validated;
+
+import javax.validation.constraints.NotNull;
 
 @Data
-//@Validated
+@Validated
 @ConfigurationProperties(prefix = "redis")
 public class JedisProperties {
 
@@ -16,7 +19,7 @@ public class JedisProperties {
   public static final Supplier<JedisPoolProperties> DEFAULT_POOL = JedisPoolProperties::new;
 
   // 连接地址 ip:port
-//  @NotNull
+  @NotNull
   private String node;
   // 超时时间
   private int commandTimeout = DEFAULT_TIMEOUT;

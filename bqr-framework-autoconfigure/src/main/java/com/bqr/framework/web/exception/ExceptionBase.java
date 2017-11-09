@@ -9,7 +9,7 @@ import org.apache.commons.lang.StringUtils;
 
 /**
  * 表示在应用程序执行过程中发生的错误。
- * @author yidi
+ * @author baiqirui
  */
 public class ExceptionBase extends RuntimeException
 {

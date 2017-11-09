@@ -18,9 +18,6 @@ import redis.clients.jedis.HostAndPort;
 import redis.clients.jedis.JedisCluster;
 import redis.clients.jedis.JedisPoolConfig;
 
-/**
- * Created on 2017/8/10.
- */
 @Slf4j
 @Configuration
 @ConditionalOnMapProperty(prefix = "redis.")

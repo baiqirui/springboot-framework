@@ -6,9 +6,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Configuration;
 
-/**
- * Created by Hikaru on 17/8/9.
- */
+
 @Configuration
 public class SpringContextConfig implements ApplicationContextAware
 {

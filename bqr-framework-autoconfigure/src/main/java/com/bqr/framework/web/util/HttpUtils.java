@@ -1,16 +1,7 @@
 package com.bqr.framework.web.util;
 
 
-/*
- * 文 件 名:  HttpUtils.java
- * 版    权:  Huawei Technologies Co., Ltd. Copyright YYYY-YYYY,  All rights reserved
- * 描    述:  <描述>
- * 修 改 人:  baiqirui
- * 修改时间:  2010-09-12
- * 跟踪单号:  <跟踪单号>
- * 修改单号:  <修改单号>
- * 修改内容:  <修改内容>
- */
+
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -53,9 +44,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * 无参数的请求通过GET方法请求URL，返回响应报文 4 无参数的请求通过DELETE方法请求URL，返回操作结果 使用方法：
  * 先得到HttpUtil的实例（使用连接池方式），
  * 通过HttpUtil.getInstance().getHttpClient()返回HttpClient对象 然后调用指定的方法即可
- *
- * @author h00101670
- * @version [v1.0, 2009-1-5]
+
  */
 public class HttpUtils
 {

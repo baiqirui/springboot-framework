@@ -32,7 +32,7 @@
   <repositories>
     <repository>
       <id>bqr-nexus</id>
-      <name>huinong nexus repository</name>
+      <name>bqr nexus repository</name>
       <url>http://47.93.229.100:8081/repository/maven-public/</url>
       <releases>
         <enabled>true</enabled>

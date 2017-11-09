@@ -36,9 +36,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import redis.clients.jedis.HostAndPort;
 
-/**
- * Created on 2017/8/10.
- */
 @Slf4j
 @Configuration
 @EnableCaching
