@@ -39,7 +39,7 @@
 			<property name="returnPageInfo" value="none" />
 		</plugin> -->
 
-		<plugin interceptor="com.bqr.demo.config.DynamicPlugin"   />
+		<plugin interceptor="com.bqr.framework.mybatis.config.DynamicPlugin"   />
 	</plugins>
 
 </configuration>
