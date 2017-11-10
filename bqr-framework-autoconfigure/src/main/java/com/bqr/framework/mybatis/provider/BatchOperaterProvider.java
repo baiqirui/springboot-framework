@@ -22,7 +22,7 @@ public class BatchOperaterProvider extends MapperTemplate
     /**
      * 批量修改
      *
-     * <!--批量修改菜品属性; --> <update id="batchUpdateDish" parameterType="java.util.Map"> <foreach collection="dishList"
+     * <!--示例--> <update id="batchUpdateDish" parameterType="java.util.Map"> <foreach collection="dishList"
      * item="dish" index="index" open="" close="" separator=";"> UPDATE DISH <set> <if
      * test="null!=dish.name">NAME=#{dish.name},PINYIN=#{dish.pinyin},</if> <if
      * test="null!=dish.statusId and 0!=dish.statusId">STATUS_ID=#{dish.statusId},</if> <if
