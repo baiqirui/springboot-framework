@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.sql.DataSource;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,6 +15,7 @@ import com.bqr.framework.ConditionalOnMapProperty;
 
 @Configuration
 @ConditionalOnMapProperty(prefix = "datasource.")
+@ConditionalOnClass(DruidDataSource.class)
 @EnableConfigurationProperties(MultiDataSourceProperties.class)
 public class DataSourceConfigruation
 {
