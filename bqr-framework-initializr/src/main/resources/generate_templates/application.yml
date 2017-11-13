@@ -17,13 +17,20 @@ spring:
       active: dev
   application:
       name: {{artifactId}}
+
+
 {{#useMybatisModel}}
-  datasource:
-    url: jdbc:mysql://rm-uf69j55wv3m56puj5o.mysql.rds.aliyuncs.com:3306/b2b_market #mysql连接地址
-    username: root  #mysql用户名
-    password: XiangYR-816  #mysql密码
-    driver-class-name: com.mysql.jdbc.Driver
-    type: com.alibaba.druid.pool.DruidDataSource
+datasource:
+    writeDS:
+         url: jdbc:mysql://rm-uf69j55wv3m56puj5o.mysql.rds.aliyuncs.com:3306/b2b_market?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;noAccessToProcedureBodies=true&amp;generateSimpleParameterMetadata=true&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useSSL=false
+         username: xxx
+         password: xxx
+         driverClassName: com.mysql.jdbc.Driver
+    readDS:
+         url: jdbc:mysql://rm-uf69j55wv3m56puj5o.mysql.rds.aliyuncs.com:3306/b2b_market?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;noAccessToProcedureBodies=true&amp;generateSimpleParameterMetadata=true&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useSSL=false
+         username: xxx
+         password: xxx
+         driverClassName: com.mysql.jdbc.Driver
 
 mybatis:
     type-aliases-package: {{packageName}}.entity
