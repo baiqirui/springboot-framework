@@ -2,8 +2,8 @@ server:
   port: 8073
 
 spring:
-#  profiles:
-#    active: dev
+  profiles:
+    active: dev
   application:
     name: sample
 
